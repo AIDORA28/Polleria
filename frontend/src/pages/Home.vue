@@ -6,6 +6,8 @@
       <router-link to="/mesas">Mesas</router-link>
       <router-link to="/insumos">Insumos</router-link>
       <router-link to="/pedidos">Pedidos</router-link>
+   <router-link to="/dashboard">dashboard</router-link>
+   
     </nav>
   </div>
 </template>

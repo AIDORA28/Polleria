@@ -4,11 +4,12 @@
 <template>
   <div class="layout">
     <header class="header">
-      <h1>Pollería</h1>
+      <h1>Pollera</h1>
       <nav class="nav">
         <router-link to="/">Inicio</router-link>
         <router-link to="/mesas">Mesas</router-link>
         <router-link to="/insumos">Insumos</router-link>
+        <router-link to="/dashboard">dashboard</router-link>
         <router-link to="/pedidos">Pedidos</router-link>
       </nav>
     </header>
