@@ -1,29 +1,29 @@
-<script setup>
-</script>
-
 <template>
-  <div class="layout">
-    <header class="header">
-      <h1>Pollera</h1>
-      <nav class="nav">
-        <router-link to="/">Inicio</router-link>
-        <router-link to="/mesas">Mesas</router-link>
-        <router-link to="/insumos">Insumos</router-link>
-        <router-link to="/dashboard">dashboard</router-link>
-        <router-link to="/pedidos">Pedidos</router-link>
-      </nav>
+  <div class="min-h-screen bg-gray-50">
+    <!-- Header básico -->
+    <header class="bg-white border-b border-gray-200">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-8 h-8 rounded-full bg-gradient-to-r from-brand-primary to-brand-secondary flex items-center justify-center text-white text-sm">🍗</div>
+          <h1 class="text-lg font-semibold text-gray-800">Sistema Pollería</h1>
+        </div>
+        <div class="flex items-center gap-4">
+          <router-link to="/" class="text-sm font-medium text-brand-primary hover:text-brand-primary/80">Inicio</router-link>
+          <span v-if="isMock" class="inline-flex items-center text-xs px-2 py-1 rounded bg-yellow-100 text-yellow-800 border border-yellow-200">Mock</span>
+        </div>
+      </div>
     </header>
-    <main class="main">
+
+    <!-- Contenido -->
+    <main class="py-6">
       <router-view />
     </main>
   </div>
-  
 </template>
 
-<style scoped>
-.layout { display: flex; flex-direction: column; min-height: 100vh; }
-.header { display: flex; align-items: center; justify-content: space-between; padding: 10px 16px; border-bottom: 1px solid #e5e5e5; }
-.nav { display: flex; gap: 10px; }
-.nav a { padding: 6px 10px; border: 1px solid #ccc; border-radius: 6px; }
-.main { padding: 16px; flex: 1; }
-</style>
+<script setup>
+import { computed } from 'vue'
+import auth from './auth/index.js'
+
+const isMock = computed(() => auth.isMockAuth)
+</script>
