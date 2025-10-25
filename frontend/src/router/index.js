@@ -67,7 +67,17 @@ const routes = [
     path: '/cocina',
     name: 'cocina',
     component: Cocina,
-    beforeEnter: requireRole('cocinero')
+    beforeEnter: requireRole('cocinero'),
+    redirect: '/cocina/pedidos',
+    children: [
+      { path: 'pedidos', name: 'cocina-pedidos', component: () => import('../apps/cocina/pages/Pedidos.vue') },
+      { path: 'preparacion', name: 'cocina-preparacion', component: () => import('../apps/cocina/pages/Preparacion.vue') },
+      { path: 'listos', name: 'cocina-listos', component: () => import('../apps/cocina/pages/Listos.vue') },
+      { path: 'recetas', name: 'cocina-recetas', component: () => import('../apps/cocina/pages/Recetas.vue') },
+      { path: 'inventario', name: 'cocina-inventario', component: () => import('../apps/cocina/pages/Inventario.vue') },
+      { path: 'tiempos', name: 'cocina-tiempos', component: () => import('../apps/cocina/pages/Tiempos.vue') },
+      { path: 'historial', name: 'cocina-historial', component: () => import('../apps/cocina/pages/Historial.vue') },
+    ]
   },
   {
     path: '/meseros',

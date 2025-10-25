@@ -1,5 +1,9 @@
 <template>
-  <div class="min-h-screen bg-gray-50">
+  <!-- Render sin shell para login -->
+  <router-view v-if="isLogin" />
+
+  <!-- Shell general para el resto -->
+  <div v-else class="min-h-screen bg-gray-50">
     <!-- Header básico -->
     <header class="bg-white border-b border-gray-200">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
@@ -23,7 +27,10 @@
 
 <script setup>
 import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import auth from './auth/index.js'
 
+const route = useRoute()
+const isLogin = computed(() => route.name === 'login')
 const isMock = computed(() => auth.isMockAuth)
 </script>

@@ -28,6 +28,40 @@
           <p class="text-gray-600">Gestiona pedidos, preparación y tiempos de cocina</p>
         </div>
 
+        <!-- Subnavbar del módulo -->
+        <div class="mb-6 bg-white border border-gray-200 rounded-xl shadow-sm">
+          <nav class="flex flex-wrap gap-2 p-3">
+            <RouterLink :to="{ name: 'cocina-pedidos' }" class="px-3 py-2 rounded-lg text-sm font-medium"
+              :class="$route.name === 'cocina-pedidos' ? 'bg-orange-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'">
+              Pedidos
+            </RouterLink>
+            <RouterLink :to="{ name: 'cocina-preparacion' }" class="px-3 py-2 rounded-lg text-sm font-medium"
+              :class="$route.name === 'cocina-preparacion' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'">
+              Preparación
+            </RouterLink>
+            <RouterLink :to="{ name: 'cocina-listos' }" class="px-3 py-2 rounded-lg text-sm font-medium"
+              :class="$route.name === 'cocina-listos' ? 'bg-green-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'">
+              Listos
+            </RouterLink>
+            <RouterLink :to="{ name: 'cocina-recetas' }" class="px-3 py-2 rounded-lg text-sm font-medium"
+              :class="$route.name === 'cocina-recetas' ? 'bg-purple-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'">
+              Recetas
+            </RouterLink>
+            <RouterLink :to="{ name: 'cocina-inventario' }" class="px-3 py-2 rounded-lg text-sm font-medium"
+              :class="$route.name === 'cocina-inventario' ? 'bg-yellow-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'">
+              Inventario
+            </RouterLink>
+            <RouterLink :to="{ name: 'cocina-tiempos' }" class="px-3 py-2 rounded-lg text-sm font-medium"
+              :class="$route.name === 'cocina-tiempos' ? 'bg-red-600 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'">
+              Tiempos
+            </RouterLink>
+            <RouterLink :to="{ name: 'cocina-historial' }" class="px-3 py-2 rounded-lg text-sm font-medium"
+              :class="$route.name === 'cocina-historial' ? 'bg-gray-800 text-white' : 'bg-gray-100 text-gray-800 hover:bg-gray-200'">
+              Historial
+            </RouterLink>
+          </nav>
+        </div>
+
         <!-- Grid de Funcionalidades -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <!-- Pedidos Pendientes -->
@@ -41,7 +75,7 @@
               <h3 class="text-lg font-semibold text-gray-800 ml-3">Pedidos Pendientes</h3>
             </div>
             <p class="text-gray-600 text-sm mb-4">Ver pedidos por preparar</p>
-            <button class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
+            <button @click="$router.push({ name: 'cocina-pedidos' })" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
               Ver Cola de Pedidos
             </button>
           </div>
@@ -57,7 +91,7 @@
               <h3 class="text-lg font-semibold text-gray-800 ml-3">En Preparación</h3>
             </div>
             <p class="text-gray-600 text-sm mb-4">Pedidos actualmente en cocina</p>
-            <button class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
+            <button @click="$router.push({ name: 'cocina-preparacion' })" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
               Ver en Proceso
             </button>
           </div>
@@ -73,7 +107,7 @@
               <h3 class="text-lg font-semibold text-gray-800 ml-3">Pedidos Listos</h3>
             </div>
             <p class="text-gray-600 text-sm mb-4">Platos terminados para servir</p>
-            <button class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
+            <button @click="$router.push({ name: 'cocina-listos' })" class="w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
               Ver Listos
             </button>
           </div>
@@ -89,7 +123,7 @@
               <h3 class="text-lg font-semibold text-gray-800 ml-3">Recetas</h3>
             </div>
             <p class="text-gray-600 text-sm mb-4">Consultar recetas y preparaciones</p>
-            <button class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
+            <button @click="$router.push({ name: 'cocina-recetas' })" class="w-full bg-purple-600 hover:bg-purple-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
               Ver Recetas
             </button>
           </div>
@@ -105,7 +139,7 @@
               <h3 class="text-lg font-semibold text-gray-800 ml-3">Inventario</h3>
             </div>
             <p class="text-gray-600 text-sm mb-4">Stock de ingredientes disponibles</p>
-            <button class="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
+            <button @click="$router.push({ name: 'cocina-inventario' })" class="w-full bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
               Ver Stock
             </button>
           </div>
@@ -121,10 +155,15 @@
               <h3 class="text-lg font-semibold text-gray-800 ml-3">Tiempos</h3>
             </div>
             <p class="text-gray-600 text-sm mb-4">Estadísticas de tiempos de cocina</p>
-            <button class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
+            <button @click="$router.push({ name: 'cocina-tiempos' })" class="w-full bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg transition-colors font-medium">
               Ver Estadísticas
             </button>
           </div>
+        </div>
+
+        <!-- Contenido de subrutas -->
+        <div class="mt-8">
+          <RouterView />
         </div>
       </div>
     </div>

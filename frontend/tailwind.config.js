@@ -11,6 +11,8 @@ export default {
         'brand-dark': '#333',
         'brand-gray': '#666',
         'brand-light-gray': '#e0e0e0',
+        'brand-accent': '#f59e0b',
+        'brand-cream': '#fff7e6'
       },
       boxShadow: {
         'brand': '0 8px 25px rgba(0, 0, 0, 0.15)',
