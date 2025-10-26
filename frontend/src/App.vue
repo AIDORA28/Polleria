@@ -13,6 +13,15 @@
         </div>
         <div class="flex items-center gap-4">
           <router-link to="/" class="text-sm font-medium text-brand-primary hover:text-brand-primary/80">Inicio</router-link>
+
+          <!-- Botón para ir a la ventana principal -->
+          <router-link 
+            to="/ven-principal" 
+            class="text-sm font-medium text-white bg-brand-primary hover:bg-brand-primary/80 px-3 py-1 rounded"
+          >
+            Ventana Principal
+          </router-link>
+
           <span v-if="isMock" class="inline-flex items-center text-xs px-2 py-1 rounded bg-yellow-100 text-yellow-800 border border-yellow-200">Mock</span>
         </div>
       </div>
@@ -34,3 +43,4 @@ const route = useRoute()
 const isLogin = computed(() => route.name === 'login')
 const isMock = computed(() => auth.isMockAuth)
 </script>
+
